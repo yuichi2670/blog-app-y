@@ -10,6 +10,8 @@
     <%# javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
   </head>
 
   <body>
@@ -23,6 +25,14 @@
         </div>
       </div>
     </header>
+    <%#もしflashが存在するなら%>
+    <% if flash.present? %>
+      <div class="flash">
+        <% flash.each do | key, value | %>
+          <div class="<%= key %>"><%= value %></div>
+        <% end %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
