@@ -7,7 +7,9 @@
     "webpack-dev-server": "^3"
   },
   "dependencies": {
-    "@rails/webpacker": "5.4.3"
+    "@rails/webpacker": "5.4.3",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "rails-ujs": "^5.2.8-1"
   },
   "name": "blog-app",
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
