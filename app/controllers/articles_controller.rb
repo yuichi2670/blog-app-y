@@ -41,6 +41,13 @@ class ArticlesController < ApplicationController
         end
     end
 
+    def destroy
+        article = Article.find(params[:id])
+        #「!」を付けることで削除に失敗したときに処理が止まる
+        article.destroy!
+        redirect_to root_path, notice: '削除に成功しました'
+    end
+
     # formから受け取った情報（ここではtitleとcontent）を抜き出す。
     private
     def article_params
