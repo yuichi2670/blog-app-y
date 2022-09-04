@@ -1,10 +1,11 @@
 class ArticlesController < ApplicationController
+    before_action :set_article, only: [:show, :edit, :update]
+    
     def index
         @articles = Article.all
     end
 
     def show
-        @article = Article.find(params[:id])
     end
 
     def new
@@ -25,12 +26,9 @@ class ArticlesController < ApplicationController
     end
 
     def edit
-        # urlのIDを取得。viewのarticleに渡す
-        @article = Article.find(params[:id])
     end
 
     def update
-        @article = Article.find(params[:id])
         # もし入れたデータを更新されていたら、更新された記事のページに遷移する
         if @article.update(article_params)
             redirect_to article_path(@article), notice: '更新できました'
@@ -53,5 +51,10 @@ class ArticlesController < ApplicationController
     def article_params
         # articleは絶対求められ、その中でtitleとcontentは許される
         params.require(:article).permit(:title, :content)
+    end
+
+    def set_article
+         # urlのIDを取得。viewのarticleに渡す
+        @article = Article.find(params[:id])
     end
 end
