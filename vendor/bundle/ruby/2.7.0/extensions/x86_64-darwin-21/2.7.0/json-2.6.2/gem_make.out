@@ -1,0 +1,13 @@
+current directory: /Users/taoyuuichi/blog-app/vendor/bundle/ruby/2.7.0/gems/json-2.6.2/ext/json
+/Users/taoyuuichi/.rbenv/versions/2.7.0/bin/ruby -I /Users/taoyuuichi/.rbenv/versions/2.7.0/lib/ruby/site_ruby/2.7.0 extconf.rb
+creating Makefile
+
+current directory: /Users/taoyuuichi/blog-app/vendor/bundle/ruby/2.7.0/gems/json-2.6.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20220905-3392-1ig5kjo sitelibdir\=./.gem.20220905-3392-1ig5kjo clean
+
+current directory: /Users/taoyuuichi/blog-app/vendor/bundle/ruby/2.7.0/gems/json-2.6.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20220905-3392-1ig5kjo sitelibdir\=./.gem.20220905-3392-1ig5kjo
+make: Nothing to be done for `all'.
+
+current directory: /Users/taoyuuichi/blog-app/vendor/bundle/ruby/2.7.0/gems/json-2.6.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20220905-3392-1ig5kjo sitelibdir\=./.gem.20220905-3392-1ig5kjo install
