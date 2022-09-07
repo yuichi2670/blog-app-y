@@ -4,5 +4,7 @@ Rails.application.routes.draw do
 
   root to: 'articles#index'
   # onlyは機能をしてするときに使うものなので、基本的な機能全て使うときはいらない
-  resources :articles
+  resources :articles do
+    resources :comments, only: [:new, :create]
+  end
 end
