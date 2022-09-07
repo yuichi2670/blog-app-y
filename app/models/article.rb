@@ -30,6 +30,10 @@ class Article < ApplicationRecord
 
     #タイトルと内容が合わせて100文字以上でなければバリデーションがかかる
     validate :validate_title_and_content_length
+
+    #記事が削除されたときにコメントも削除される
+    has_many :comments, dependent: :destroy
+
     #記事はユーザーと紐づいている
     belongs_to :user
 
