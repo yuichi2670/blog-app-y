@@ -26,13 +26,36 @@ class User < ApplicationRecord
   # ユーザーと記事を紐づける
   has_many :articles, dependent: :destroy
 
+  has_one :profile, dependent: :destroy
+
+  delegate :birthday, :age, :gender, to: :profile, allow_nil: true
+
   def has_written?(article)
     articles.exists?(id: article.id)
   end
 
-  # yuichitao2670@gmail.com
   def display_name
-    # ['yuichitao2670', 'gmail.com']と分割して配列を取得
-    self.email.split('@').first
+    #ぼっち演算子(profile&.でprofileがnilでないときだけという意味)
+    profile&.nickname || self.email.split('@').first # ['yuichitao2670', 'gmail.com']と分割して配列を取得
+  end
+
+  # def birthday
+  #   profile&.birthday
+  # end
+
+  # def gender
+  #   profile&.gender
+  # end
+
+  def prepare_profile
+    profile || build_profile
+  end
+
+  def avatar_image
+    if profile&.avatar&.attached?
+      profile.avatar
+    else
+      'default-avatar.png'
+    end
   end
 end
