@@ -2,18 +2,20 @@
 #
 # Table name: articles
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  content    :text             not null
 #  title      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  user_id    :integer          not null
+#  user_id    :bigint           not null
 #
 # Indexes
 #
 #  index_articles_on_user_id  (user_id)
 #
 class Article < ApplicationRecord
+    has_one_attached :eyecatch
+
     # titleが入力されていないと保存されない
     validates :title, presence: true
     #必要な文字数の指定
@@ -34,6 +36,8 @@ class Article < ApplicationRecord
     #記事が削除されたときにコメントも削除される
     has_many :comments, dependent: :destroy
 
+    has_many :likes, dependent: :destroy
+
     #記事はユーザーと紐づいている
     belongs_to :user
 
@@ -43,6 +47,10 @@ class Article < ApplicationRecord
 
     def author_name
         user.display_name
+    end
+
+    def like_count
+        likes.count
     end
 
     private
