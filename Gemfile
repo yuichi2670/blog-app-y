@@ -68,6 +68,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rubocop-rails'
   gem 'dotenv-rails'
+  gem 'jquery-rails'
 end
 
 group :development do
