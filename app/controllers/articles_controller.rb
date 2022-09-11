@@ -65,7 +65,7 @@ class ArticlesController < ApplicationController
     private
     def article_params
         # articleは絶対求められ、その中でtitleとcontentは許される
-        params.require(:article).permit(:title, :content)
+        params.require(:article).permit(:title, :content, :eyecatch)
     end
 
     def set_article
